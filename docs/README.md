@@ -1,13 +1,14 @@
-# API Documentation for Bookstore 
+# Documentation for Bookstore API
 
 ## Introduction
-This document provides a guide on how to use the Sign up and Login API for Owner. The API is hosted at `https://bookstore-0axz.onrender.com/`
+Welcome to the API documentation for the Bookstore API. This API provides endpoints for managing bookstores, authors, and books. The API is designed to be simple and easy to use, with clear and concise documentation.
+The API is hosted at `https://bookstore-0axz.onrender.com/`
 
 ### Authentication
 Most endpoints in the API require authentication using JSON Web Tokens (JWT). To authenticate, include the `Authorization` header in the request with the JWT. The header should be in the format: Bearer `<token>`, where `<token>` is the JWT obtained during the login process.
 
 ## Endpoints
-The API has four endpoints:
+The Bookstore API provides the following endpoints:
 
 ### Owner Registration
 **Endpoint**: `POST /api/owners`
@@ -42,7 +43,9 @@ The API has four endpoints:
 If the owner already exists, a `409 Conflict` response will be returned. If the request is successful, a `201 Created` response will be returned with the new owner’s details.
 
 #### Owner Login 
+
 **Endpoint**: `POST /api/owners/login`
+
 This endpoint is used to log in an existing owner. The request should be a POST request with the following parameters:
 
 ### Request body :
