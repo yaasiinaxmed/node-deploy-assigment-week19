@@ -89,7 +89,7 @@ router.put('/update_book/:id', authenticate, async (req, res) => {
         });
 
         if(!updateBook) {
-            return res.status(400).json({status: 400, message: "Book was not updated!"})
+            return res.status(404).json({status: 404, message: "Book does not exist"})
         }
 
         res.status(200).json({status: 200, message: "Book successFully update"})

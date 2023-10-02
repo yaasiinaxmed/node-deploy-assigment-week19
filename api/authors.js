@@ -81,7 +81,7 @@ router.put('/update_author/:id', authenticate, async (req, res) => {
         });
 
         if(!updateAuthor) {
-            return res.status(400).json({status: 400, message: "Author was not updated!"})
+            return res.status(404).json({status: 400, message: "Author does not exist"})
         }
 
         res.status(200).json({status: 200, message: "Author successFully updated!"})

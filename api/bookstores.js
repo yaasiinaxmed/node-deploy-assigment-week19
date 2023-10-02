@@ -45,10 +45,11 @@ router.get('/:id', async (req, res) => {
 router.post('/create_bookStore', authenticate, async (req, res) => {
     try {
         
-        const { name, location} = req.body;
+        const { ownerId, name, location} = req.body;
 
-        const newBookStore = await prisma.bookstore.create({
+        const newBookStore = await prisma.bookStore.create({
             data: {
+                ownerId,
                 name, 
                 location,
             },
@@ -69,21 +70,22 @@ router.put('/update_bookStore/:id', authenticate, async (req, res) => {
     try {
         
         const {id} = req.params;
-        const {name, location} = req.body;
+        const {ownerId, name, location} = req.body;
 
-        const updateBookStore = await prisma.bookstore.update({
+        const updateBookStore = await prisma.bookStore.update({
             where: {
                 id: Number(id),
             },
 
             data: {
+                ownerId,
                 name,
                 location,
             }
         });
 
         if(!updateBookStore) {
-            return res.status(400).json({status: 400, message: "BookStore was not updated!"})
+            return res.status(404).json({status: 404, message: "bookstore does not exist"})
         }
 
         res.status(200).json({status: 200, message: "BookStore successFully updated!"})

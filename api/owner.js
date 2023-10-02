@@ -3,7 +3,7 @@ import express from 'express'
 import prisma from './lib/index.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import "dotenv/config.js"
+// import "dotenv/config.js"
 const SECTRET_KEY = process.env.SECRET_KEY
 
 const router = express.Router();
